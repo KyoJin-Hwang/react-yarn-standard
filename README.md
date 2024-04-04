@@ -1,14 +1,16 @@
 # react-yarn-v4-standard
+### `폴더에 있는 이미지 파일 삭제`
 
-## ✔ 세팅 버전 ( Version )
+#### ✔ 세팅 버전 ( Version )
 
-### ✔ **Node** : 20.12.1
+#### ✔ **Node** : 20.12.1
 
-### ✔ **Yarn berry** : 3.8.0
+#### ✔ **Yarn berry** : 3.8.0
 
-### ✔ **React** : 18.2.0
+#### ✔ **React** : 18.2.0
 
 ## 📖 특징 ( Features )
+
 
 ## 1️⃣ 초기설치 ( Setup )
 
@@ -117,10 +119,14 @@ yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
 ## 2️⃣ ESLint / Prettier 적용
 ### ESLint 설정 
 
-#### eslint dependencies 추가 
+#### 1. ESLint dependencies 추가 
 ```bash
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
 
-#### Config 분리 
-- eslint
+#### 2. Config 분리 
+
+1. 폴더안에 .eslintrc.json 생성
+2. CRA로 만들어진 eslinConfig 안에 extends 복사해서 .eslint.json 붙여넣기
+3. package.json 에서 eslintConfig 지우기
+![alt text](image-2.png)
