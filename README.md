@@ -1,4 +1,4 @@
-# react-yarn-v3-standard
+# react-yarn-standard
 
 ## 🎁 세팅 버전 ( Version )
 
