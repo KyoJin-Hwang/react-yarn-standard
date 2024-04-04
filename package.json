@@ -1,5 +1,5 @@
 {
-  "name": "react-yarn-v2-standard",
+  "name": "react-yarn-v4-standard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.0.0"
 }
