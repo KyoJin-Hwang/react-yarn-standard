@@ -1,8 +1,8 @@
 # react-yarn-v3-standard
 
-## ✔ 세팅 버전 ( Version )
+## 🎁 세팅 버전 ( Version )
 
-### ✔ **Node** : 20.12.1
+## ✔ **Node** : 20.12.1
 
 ### ✔ **Yarn berry** : 3.8.0
 
