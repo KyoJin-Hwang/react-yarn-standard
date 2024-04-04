@@ -1,7 +1,7 @@
 # react-yarn-v4-standard
 ### `폴더에 있는 이미지 파일 삭제`
 
-### ✔ 세팅 버전 ( Version )
+## ✔ 세팅 버전 ( Version )
 
 #### ✔ **Node** : 20.12.1
 
