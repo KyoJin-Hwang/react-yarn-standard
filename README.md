@@ -1,5 +1,5 @@
 # react-yarn-v4-standard
-### `폴더에 있는 이미지 파일 삭제`
+#### `폴더에 있는 이미지 파일 삭제`
 
 ## ✔ 세팅 버전 ( Version )
 
@@ -128,5 +128,8 @@ yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint
 
 1. 폴더안에 .eslintrc.json 생성
 2. CRA로 만들어진 eslinConfig 안에 extends 복사해서 .eslint.json 붙여넣기
-3. package.json 에서 eslintConfig 지우기
 ![alt text](image-2.png)
+
+3. package.json 에서 eslintConfig 지우기
+
+
