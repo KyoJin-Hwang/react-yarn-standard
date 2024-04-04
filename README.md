@@ -117,7 +117,10 @@ yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
 ## 2️⃣ ESLint / Prettier 적용
 ### ESLint 설정 
 
-#### # eslint dependencies 추가 
+#### eslint dependencies 추가 
 ```bash
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
+
+#### Config 분리 
+- eslint
