@@ -4,8 +4,8 @@
 
 ## 세팅 버전 ( Version )
 
-- ✔ Node : 20.12.1
-- ✔ Yarn : 4.1.1
-- ✔ React : 18.2.0
+✔ **Node** : 20.12.1
+✔ **Yarn** : 4.1.1
+✔ **React** : 18.2.0
 
 ## Features
