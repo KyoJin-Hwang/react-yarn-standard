@@ -1,4 +1,4 @@
-# react-yarn-standard
+# cra-yarn-standard
 
 ## 🎁 세팅 버전 ( Version )
 
