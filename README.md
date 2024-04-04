@@ -1,4 +1,4 @@
-# react-yarn-v4-standard
+# react-yarn-v3-standard
 
 ## ✔ 세팅 버전 ( Version )
 
