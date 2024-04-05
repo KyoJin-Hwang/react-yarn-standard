@@ -19,9 +19,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
   },
-
   "browserslist": {
     "production": [
       ">0.2%",
@@ -36,8 +37,10 @@
   },
   "packageManager": "yarn@3.8.0",
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@types/testing-library__jest-dom": "^6.0.0",
+    "craco-alias": "^3.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",

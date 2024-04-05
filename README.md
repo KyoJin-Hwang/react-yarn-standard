@@ -181,12 +181,13 @@ yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint
 
 ❌ Error 발생
 
-- Cannot find module 'prettier' from
-- node-modules 폴더가 없어서 에러가 발생된다.
+> Cannot find module 'prettier' from
+>
+> > node-modules 폴더가 없어서 에러가 발생된다.
 
 ```bash
 # 재실행
-yarn dlx @yarnpkg/sdks vscod
+yarn dlx @yarnpkg/sdks vscode
 ```
 
 #### 2. Config 분리
@@ -223,3 +224,92 @@ yarn dlx @yarnpkg/sdks vscod
 #### 1. prettier 파일 추가
 
 - .prettierrc 파일생성
+
+#### 2. prettier 규칙 생성
+
+```json
+{
+  "useTabs": false,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "lf",
+  "semi": false,
+  "arrowParens": "always"
+}
+```
+
+#### 3. OS 별 호환성 맞추기
+
+`command`
+
+- window : ctrl + ,
+- mac : ctrl + ,
+
+1. json 열기를 눌러준다.
+
+![alt text](image-3.png)
+
+2. settings.json 수정
+
+```json
+{
+  // 파일을 저장할 때 eslint 수정
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // 모든 파일을 저장할 때 LF 형식으로 저장 (Window 사용자만 설정)
+  "files.eol": "\n"
+}
+```
+
+3. yarn dlx pkg 재설치
+
+```bash
+yarn dlx @yarnpkg/sdks vscode
+```
+
+❌ Error 발생
+
+> Error: Required unplugged package missing from disk. This may happen when switching branches without running installs
+>
+> > node-mudules 가 없어서 Error
+
+```bash
+# yarn install
+yarn
+# 재설치
+yarn dlx @yarnpkg/sdks vscode
+```
+
+4. lint 검사 및 수정 scripts 생성
+
+```json
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    // 파일 전체 lint 검사
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    // 파일 전체 lint 수정
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
+},
+```
+
+## 3️⃣ Craco 세팅
+
+### 🙄 Craco 란?
+
+- Craco는 Create-React-App Configuration Override의 약어
+- CRA에 config 설정을 덮어쓰기 위한 패키지
+- <a href="https://craco.js.org/">Craco 사이트</a>
+<hr/>
+
+#### 1. Craco 설치
+
+```bash
+yarn add -D @craco/craco
+yarn add -D craco-alias
+```
