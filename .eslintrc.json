@@ -1,11 +1,9 @@
 {
-    // [extends] 프로젝트에 적용할 eslit 규칙셋
     "extends": [
         "react-app",
         "react-app/jest",
         "plugin:prettier/recommended"
     ],
-    // [plugins] 사용할 eslint 플러그인 설정
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier" : "error"
