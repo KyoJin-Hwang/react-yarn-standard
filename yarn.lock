@@ -11264,9 +11264,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-yarn-v4-standard@workspace:.":
+"react-yarn-v3-standard@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-yarn-v4-standard@workspace:."
+  resolution: "react-yarn-v3-standard@workspace:."
   dependencies:
     "@craco/craco": ^7.1.0
     "@testing-library/jest-dom": ^6.4.2

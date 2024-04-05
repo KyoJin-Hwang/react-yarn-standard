@@ -1,4 +1,4 @@
-# react-yarn-v4-standard
+# react-yarn-standard
 
 #### 🛒 폴더에 있는 이미지 파일 삭제
 
@@ -147,7 +147,7 @@ yarn dlx @yarnpkg/sdks vscode
 !.yarn/versions
 ```
 
-### ❌ App.test.tsx 에서 에러
+#### ❌ App.test.tsx 에서 에러
 
 #### Error
 
@@ -160,26 +160,33 @@ yarn dlx @yarnpkg/sdks vscode
 yarn remove @testing-library/jest-dom
 
 # install
-yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
+yarn add -D @types/testing-library__jest-dom
+yarn add -D @testing-library/jest-dom
+```
+
+#### 설치가 완료되면 tsconfig.json 파일에 들어가서
+
+```json
+//"compilerOptions" 안에 type 추가 해준다.
+"types": ["jest", "@testing-library/jest-dom"]
 ```
 
 ## 2️⃣ ESLint / Prettier 적용
 
-### vscode Extends 설치 및 줄시퀀스 선택
+### vscode Extends 설치
 
 - Prettier - Code formatter 설치
 - ESLint 설치
-- vscode 하단에 줄 시쿼슨를 LF로 바꿔준다.
 
-### ESLint 설정
+## 🛠 ESLint 설정
 
-#### 1. ESLint 및 Prettier dependencies 추가
+### 1. ESLint 및 Prettier dependencies 추가
 
 ```bash
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
 
-❌ Error 발생
+#### ❌ Error 발생
 
 > Cannot find module 'prettier' from
 >
@@ -190,7 +197,7 @@ yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-#### 2. Config 분리
+### 2. Config 분리
 
 1. 폴더안에 .eslintrc.json 생성
 2. CRA로 만들어진 eslinConfig 안에 extends 복사해서 .eslint.json 붙여넣기
@@ -204,7 +211,7 @@ yarn dlx @yarnpkg/sdks vscode
 
 3. package.json 에서 eslintConfig 지우기
 
-#### 3. ESLint rulse, extends 수정
+### 3. ESLint rulse, extends 수정
 
 ```json
 {
@@ -219,7 +226,7 @@ yarn dlx @yarnpkg/sdks vscode
 }
 ```
 
-### Prettier 설정
+## 🛠 Prettier 설정
 
 #### 1. prettier 파일 추가
 
@@ -270,7 +277,7 @@ yarn dlx @yarnpkg/sdks vscode
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-❌ Error 발생
+#### ❌ Error 발생
 
 > Error: Required unplugged package missing from disk. This may happen when switching branches without running installs
 >
@@ -298,6 +305,8 @@ yarn dlx @yarnpkg/sdks vscode
 },
 ```
 
+<hr/>
+
 ## 3️⃣ Craco 세팅
 
 ### 🙄 Craco 란?
@@ -312,4 +321,67 @@ yarn dlx @yarnpkg/sdks vscode
 ```bash
 yarn add -D @craco/craco
 yarn add -D craco-alias
+```
+
+#### 2. 경로 규칙 설정할 json 파일 생성 및 규칙
+
+1. tsconfig.paths.json 파일 생성
+2. json에 규칙 생성
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"]
+    }
+  }
+}
+```
+
+#### 3. craco.config.js 파일 생성 및 module 생성
+
+```javascript
+const CracoAlias = require('craco-alias')
+
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: 'tsconfig',
+        tsConfigPath: 'tsconfig.paths.json',
+      },
+    },
+  ],
+}
+```
+
+#### 4. tsconfig.json extends 추가와 src 수정
+
+```json
+{
+  // paths 경로 설정했던것 확장
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  // tsconfig.paths.json 포함한다.
+  "include": ["src", "tsconfig.paths.json"]
+}
 ```
