@@ -1,4 +1,5 @@
 # react-yarn-v4-standard
+
 #### 🛒 폴더에 있는 이미지 파일 삭제
 
 ## ✔ 세팅 버전 ( Version )
@@ -11,47 +12,52 @@
 
 ## 📖 특징 ( Features )
 
-
 ## 💡 규칙 ( Rulse )
 
-### *ESLint*
+### _ESLint_
 
-
-### *Prettier*
+### _Prettier_
 
 **useTabs**
-- 탭(tab) 사용 여부를 결정하는 불리언 값입니다. 
+
+- 탭(tab) 사용 여부를 결정하는 불리언 값입니다.
 - `use` : false로 설정되어 있으므로 스페이스를 사용하고 있습니다.
 
-**printWidth** 
-- 코드 줄의 최대 길이입니다. 
+**printWidth**
+
+- 코드 줄의 최대 길이입니다.
 - 초과하면 줄 바꿈이 이루어집니다.
 - `use` : 80으로 설정되어 있으므로 한 줄의 코드가 80자를 초과하면 줄 바꿈
 
-**tabWidth** 
-- 탭(tab) 또는 스페이스로 들여쓰기 할 때 사용할 공백 수입니다. 
+**tabWidth**
+
+- 탭(tab) 또는 스페이스로 들여쓰기 할 때 사용할 공백 수입니다.
 - `use` : 2로 설정되어 있으므로 2칸 들여쓰기를 사용합니다.
 
-**singleQuote** 
-- 문자열을 홑따옴표(')로 사용할지 여부를 결정하는 불리언 값입니다. 
+**singleQuote**
+
+- 문자열을 홑따옴표(')로 사용할지 여부를 결정하는 불리언 값입니다.
 - `use` : true로 설정되어 있으므로 홑따옴표를 사용합니다.
 
-**trailingComma** 
-- 객체나 배열의 마지막 요소 뒤에 쉼표를 추가할지 여부를 결정합니다. 
+**trailingComma**
+
+- 객체나 배열의 마지막 요소 뒤에 쉼표를 추가할지 여부를 결정합니다.
 - `use` : "all"로 설정되어 있으므로 모든 경우에 쉼표를 추가합니다.
 
-**endOfLine** 
-- 개행 문자 종류를 결정합니다. 
+**endOfLine**
+
+- 개행 문자 종류를 결정합니다.
 - `use` : "lf"로 설정되어 있으므로 Unix 스타일의 줄 바꿈 문자(LF)를 사용합니다.
 
 **semi**
-- 세미콜론(;) 사용 여부를 결정하는 불리언 값입니다. 
+
+- 세미콜론(;) 사용 여부를 결정하는 불리언 값입니다.
 - `use` : false로 설정되어 있으므로 세미콜론을 사용하지 않습니다.
 
 **arrowParens**
-- 화살표 함수의 매개변수가 하나인 경우에 괄호를 사용할지 여부를 결정합니다. 
-- `use` : "always"로 설정되어 있으므로 항상 괄호를 사용합니다.
 
+- 화살표 함수의 매개변수가 하나인 경우에 괄호를 사용할지 여부를 결정합니다.
+- `use` : "always"로 설정되어 있으므로 항상 괄호를 사용합니다.
 
 ## 1️⃣ 초기설치 ( Setup )
 
@@ -158,19 +164,32 @@ yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
 ```
 
 ## 2️⃣ ESLint / Prettier 적용
+
 ### vscode Extends 설치 및 줄시퀀스 선택
-- Prettier - Code formatter 설치 
+
+- Prettier - Code formatter 설치
 - ESLint 설치
 - vscode 하단에 줄 시쿼슨를 LF로 바꿔준다.
 
-### ESLint 설정 
+### ESLint 설정
 
-#### 1. ESLint dependencies 추가 
+#### 1. ESLint 및 Prettier dependencies 추가
+
 ```bash
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
 
-#### 2. Config 분리 
+❌ Error 발생
+
+- Cannot find module 'prettier' from
+- node-modules 폴더가 없어서 에러가 발생된다.
+
+```bash
+# 재실행
+yarn dlx @yarnpkg/sdks vscod
+```
+
+#### 2. Config 분리
 
 1. 폴더안에 .eslintrc.json 생성
 2. CRA로 만들어진 eslinConfig 안에 extends 복사해서 .eslint.json 붙여넣기
@@ -178,34 +197,29 @@ yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint
 ```json
 // .eslintrc.json
 {
-    "extends": [
-        "react-app",
-        "react-app/jest"
-    ]
+  "extends": ["react-app", "react-app/jest"]
 }
 ```
 
 3. package.json 에서 eslintConfig 지우기
 
-#### 3. ESLint rulse, extends 수정 
+#### 3. ESLint rulse, extends 수정
+
 ```json
 {
-    // [extends] 프로젝트에 적용할 eslit 규칙셋
-    "extends": [
-        "react-app",
-        "react-app/jest",
-        "plugin:prettier/recommended"
-    ],
-    // [plugins] 사용할 eslint 플러그인 설정
-    "plugins": ["prettier"],
-    "rules": {
-      // prettier 와 eslint 규칙 겹치는 부분 방지
-        "prettier/prettier" : "error"
-    }
+  // [extends] 프로젝트에 적용할 eslit 규칙셋
+  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+  // [plugins] 사용할 eslint 플러그인 설정
+  "plugins": ["prettier"],
+  "rules": {
+    // prettier 와 eslint 규칙 겹치는 부분 방지
+    "prettier/prettier": "error"
+  }
 }
 ```
 
-### Prettier 설정 
-#### 1. prettier 파일 추가 
-- .prettierrc 파일생성
+### Prettier 설정
 
+#### 1. prettier 파일 추가
+
+- .prettierrc 파일생성
