@@ -11,6 +11,10 @@
 #### ✔ **React** : 18.2.0
 
 ## 📖 특징 ( Features )
+- ⚛️ Create React APP
+- 0️⃣ Zero-install
+- 💢 ESLint & Prettier
+- 🎨 Emotion
 
 ## 💡 규칙 ( Rulse )
 
