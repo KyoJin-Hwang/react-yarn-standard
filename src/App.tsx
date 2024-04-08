@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Kyoin-React-Standard
+          {/* Kyoin-React-Standard */}
         </a>
       </header>
     </div>

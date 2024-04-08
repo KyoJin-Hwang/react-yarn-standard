@@ -4,7 +4,13 @@
 
 ## ✔ 세팅 버전 ( Version )
 
-#### ✔ **Node** : 20.12.1
+#### ✔ **Node** : 20.11.0
+
+- 20.12.1 LTS(24.04.08기준)는 build가 계속 에러나는 현상이 발생
+- 첫 빌드는 무사히 완료 이후 두번째부터 static 이라는 파일만 생긴다.
+
+(참고 사진)
+![alt text](image-4.png)
 
 #### ✔ **Yarn berry** : 3.8.0
 
@@ -367,7 +373,7 @@ module.exports = {
 }
 ```
 
-#### 4. tsconfig.json extends 추가와 src 수정
+#### 4. tsconfig.json extends 추가와 include 수정
 
 ```json
 {
@@ -393,4 +399,19 @@ module.exports = {
   // tsconfig.paths.json 포함한다.
   "include": ["src", "tsconfig.paths.json"]
 }
+```
+
+#### 5. package.json scripts 변경
+
+- craco로 수정해준다.
+
+```json
+"scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
+},
 ```
