@@ -433,3 +433,11 @@ yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
 ```bash
 yarn add eslint-config-airbnb -D
 ```
+
+#### ✅ 2-1 만약 CRA를 통해 만드는게 아닐시 or CRA v2 기준 이하일때
+
+```bash
+npm info "eslint-config-airbnb@latest" peerDependencies
+```
+
+![alt text](image-5.png)
