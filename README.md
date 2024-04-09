@@ -82,7 +82,7 @@
 node -v  // 20.12.1
 ```
 
-#### ❌ Node 버전 틀린 경우
+### ❌ Node 버전 틀린 경우
 
 ```bash
 // 터미널 열기 (관리자권한)
@@ -162,13 +162,13 @@ yarn dlx @yarnpkg/sdks vscode
 !.yarn/versions
 ```
 
-#### ❌ App.test.tsx 에서 에러
+### ❌ App.test.tsx 에서 에러
 
-#### Error
+### Error
 
 ![alt text](image-1.png)
 
-#### 해결
+### 해결
 
 ```bash
 # remove
@@ -179,7 +179,7 @@ yarn add -D @types/testing-library__jest-dom
 yarn add -D @testing-library/jest-dom
 ```
 
-#### 설치가 완료되면 tsconfig.json 파일에 들어가서
+### 설치가 완료되면 tsconfig.json 파일에 들어가서
 
 ```json
 //"compilerOptions" 안에 type 추가 해준다.
@@ -201,7 +201,7 @@ yarn add -D @testing-library/jest-dom
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
 
-#### ❌ Error 발생
+### ❌ Error 발생
 
 > Cannot find module 'prettier' from
 >
@@ -243,11 +243,11 @@ yarn dlx @yarnpkg/sdks vscode
 
 ## 🛠 Prettier 설정
 
-#### 1. prettier 파일 추가
+### 1. prettier 파일 추가
 
 - .prettierrc 파일생성
 
-#### 2. prettier 규칙 생성
+### 2. prettier 규칙 생성
 
 ```json
 {
@@ -262,7 +262,7 @@ yarn dlx @yarnpkg/sdks vscode
 }
 ```
 
-#### 3. OS 별 호환성 맞추기
+### 3. OS 별 호환성 맞추기
 
 `command`
 
@@ -292,7 +292,7 @@ yarn dlx @yarnpkg/sdks vscode
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-#### ❌ Error 발생
+### ❌ Error 발생
 
 > Error: Required unplugged package missing from disk. This may happen when switching branches without running installs
 >
@@ -331,14 +331,14 @@ yarn dlx @yarnpkg/sdks vscode
 - <a href="https://craco.js.org/">Craco 사이트</a>
 <hr/>
 
-#### 1. Craco 설치
+### 1. Craco 설치
 
 ```bash
 yarn add -D @craco/craco
 yarn add -D craco-alias
 ```
 
-#### 2. 경로 규칙 설정할 json 파일 생성 및 규칙
+### 2. 경로 규칙 설정할 json 파일 생성 및 규칙
 
 1. tsconfig.paths.json 파일 생성
 2. json에 규칙 생성
@@ -355,7 +355,7 @@ yarn add -D craco-alias
 }
 ```
 
-#### 3. craco.config.js 파일 생성 및 module 생성
+### 3. craco.config.js 파일 생성 및 module 생성
 
 ```javascript
 const CracoAlias = require('craco-alias')
@@ -373,7 +373,7 @@ module.exports = {
 }
 ```
 
-#### 4. tsconfig.json extends 추가와 include 수정
+### 4. tsconfig.json extends 추가와 include 수정
 
 ```json
 {
@@ -401,7 +401,7 @@ module.exports = {
 }
 ```
 
-#### 5. package.json scripts 변경
+### 5. package.json scripts 변경
 
 - craco로 수정해준다.
 
@@ -414,4 +414,22 @@ module.exports = {
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
 },
+```
+
+## 4️⃣ ESLint Airbnb 세팅
+
+### 1. TS를 위한 플러그인 및 파서 다운 ( dev )
+
+- 개발자모드에서만 사용하기 때문에
+
+```bash
+yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```
+
+### 2. Airbnb ESLint 다운 ( dev )
+
+- 개발자모드에서만 사용하기 때문에
+
+```bash
+yarn add eslint-config-airbnb -D
 ```
