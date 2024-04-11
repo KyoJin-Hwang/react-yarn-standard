@@ -1,11 +1,83 @@
 {
-    "extends": [
-        "react-app",
-        "react-app/jest",
-        "plugin:prettier/recommended"
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "react-app/jest"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
     ],
-    "plugins": ["prettier"],
-    "rules": {
-        "prettier/prettier" : "error"
+    // var 금지
+    "no-var": "warn",
+    // 사용하지 않는 변수가 있을 때 경고 (기본 설정을 꺼주어야 한다.)
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    // console.log 만 따로 찍는거 가능하게
+    "no-console": "off",
+    // jsx 문법은 js,jsx,ts,tsx 를 제외한 사용불가
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    // alert 문제 비적용
+    "no-alert": "off",
+    // 프래그먼트 (빈태그) 사용할 수 있게
+    "react/jsx-no-useless-fragment": "off",
+    // htmlFor 과 id 로 연결시켜줘도 에러가 발생하는 이유
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelAttributes": ["htmlFor"]
+      }
+    ],
+    // emotion css 사용할 수 있게 설정
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    // html 자동으로 닫히는거 x
+    "react/self-closing-comp": "off",
+
+    "jsx-a11y/anchor-has-content": [
+      0,
+      {
+        "components": ["Anchor"]
+      }
+    ],
+    // 디버그 허용
+    "no-debugger": "off",
+    // 파일의 경로가 틀렸는지 확인하는 옵션
+    "import/no-unresolved": "off",
+    // 확장자는 생략해서 import 하도록 설정
+    "react/no-unstable-nested-components": ["off"],
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "@typescript-eslint/no-var-requires": 1
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
     }
+  }
 }

@@ -10,6 +10,7 @@
 - 첫 빌드는 무사히 완료 이후 두번째부터 static 이라는 파일만 생긴다.
 
 (참고 사진)
+
 ![alt text](image-4.png)
 
 #### ✔ **Yarn berry** : 3.8.0
@@ -82,7 +83,7 @@
 node -v  // 20.12.1
 ```
 
-#### ❌ Node 버전 틀린 경우
+### ❌ Node 버전 틀린 경우
 
 ```bash
 // 터미널 열기 (관리자권한)
@@ -162,13 +163,13 @@ yarn dlx @yarnpkg/sdks vscode
 !.yarn/versions
 ```
 
-#### ❌ App.test.tsx 에서 에러
+### ❌ App.test.tsx 에서 에러
 
-#### Error
+### Error
 
 ![alt text](image-1.png)
 
-#### 해결
+### 해결
 
 ```bash
 # remove
@@ -179,7 +180,7 @@ yarn add -D @types/testing-library__jest-dom
 yarn add -D @testing-library/jest-dom
 ```
 
-#### 설치가 완료되면 tsconfig.json 파일에 들어가서
+### 설치가 완료되면 tsconfig.json 파일에 들어가서
 
 ```json
 //"compilerOptions" 안에 type 추가 해준다.
@@ -201,7 +202,7 @@ yarn add -D @testing-library/jest-dom
 yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
 ```
 
-#### ❌ Error 발생
+### ❌ Error 발생
 
 > Cannot find module 'prettier' from
 >
@@ -243,11 +244,11 @@ yarn dlx @yarnpkg/sdks vscode
 
 ## 🛠 Prettier 설정
 
-#### 1. prettier 파일 추가
+### 1. prettier 파일 추가
 
 - .prettierrc 파일생성
 
-#### 2. prettier 규칙 생성
+### 2. prettier 규칙 생성
 
 ```json
 {
@@ -262,7 +263,7 @@ yarn dlx @yarnpkg/sdks vscode
 }
 ```
 
-#### 3. OS 별 호환성 맞추기
+### 3. OS 별 호환성 맞추기
 
 `command`
 
@@ -292,7 +293,7 @@ yarn dlx @yarnpkg/sdks vscode
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-#### ❌ Error 발생
+### ❌ Error 발생
 
 > Error: Required unplugged package missing from disk. This may happen when switching branches without running installs
 >
@@ -331,14 +332,14 @@ yarn dlx @yarnpkg/sdks vscode
 - <a href="https://craco.js.org/">Craco 사이트</a>
 <hr/>
 
-#### 1. Craco 설치
+### 1. Craco 설치
 
 ```bash
 yarn add -D @craco/craco
 yarn add -D craco-alias
 ```
 
-#### 2. 경로 규칙 설정할 json 파일 생성 및 규칙
+### 2. 경로 규칙 설정할 json 파일 생성 및 규칙
 
 1. tsconfig.paths.json 파일 생성
 2. json에 규칙 생성
@@ -355,7 +356,7 @@ yarn add -D craco-alias
 }
 ```
 
-#### 3. craco.config.js 파일 생성 및 module 생성
+### 3. craco.config.js 파일 생성 및 module 생성
 
 ```javascript
 const CracoAlias = require('craco-alias')
@@ -373,7 +374,7 @@ module.exports = {
 }
 ```
 
-#### 4. tsconfig.json extends 추가와 include 수정
+### 4. tsconfig.json extends 추가와 include 수정
 
 ```json
 {
@@ -401,7 +402,7 @@ module.exports = {
 }
 ```
 
-#### 5. package.json scripts 변경
+### 5. package.json scripts 변경
 
 - craco로 수정해준다.
 
@@ -414,4 +415,128 @@ module.exports = {
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
 },
+```
+
+## 4️⃣ ESLint Airbnb 세팅
+
+### 1. TS를 위한 플러그인 및 파서 다운 ( dev )
+
+- 개발자모드에서만 사용하기 때문에
+
+```bash
+yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```
+
+### 2. Airbnb ESLint 다운 ( dev )
+
+- 개발자모드에서만 사용하기 때문에
+
+```bash
+yarn add eslint-config-airbnb -D
+```
+
+### 3. 의존성 패키기 확인 후 설치
+
+```bash
+npm info "eslint-config-airbnb@latest" peerDependencies
+```
+
+![alt text](image-5.png)
+
+1. 필요한 패키지들을 확인한다.
+2. npx install-peerdeps eslint-config-airbnb -D 를 하여 devDependencies 다운는다.
+
+```bash
+npx install-peerdeps eslint-config-airbnb -D
+
+# It seems as if you are useing Yarn. Would you like to use Yarn for the
+# instatllation? (Y/N) 이 뜰경우 y를 누르고 enter를 누른다.
+# 만약 설치가 안될시
+
+yarn add eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-import -D
+```
+
+![alt text](image-7.png)
+
+### 4. eslintrc.json 수정
+
+```json
+{
+  // [parser] typescript를 parser로 사용하도록 함
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "react-app/jest"
+  ],
+  // [plugins] 사용할 eslint 플러그인 설정
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    }
+  }
+}
+```
+
+### 5. eslintrc 패키지설명
+
+- eslint-config-prettier : Prettier와 충돌이 생길 수 있는 ESLint의 규칙들을 비활성화
+- eslint-plugin-prettier : ESLint로 Prettier를 실행하는 플러그인
+- eslint : 자바스크립트 코드를 검증 및 확인하는 핵심 라이브러리
+- eslint-plugin-import : ES6+의 import/export 문법과 파일 경로 및 파일명이 제대로 입력되었는지를 체크해 주는 플러그인
+- eslint-plugin-jsx-a11y : JSX 엘리먼트의 접근성 관련 규칙을 체크해주는 플러그인
+- eslint-plugin-react : React를 위한 규칙을 추가해주는 플러그인
+- eslint-plugin-react-hooks : React Hooks를 위한 규칙을 추가해 주는 플러그인
+- eslint-config-airbnb : eslint airbnb규칙 적용 플러그인
+
+## 4️⃣ Emotion setting
+
+### 1. Emotion 설치
+
+```bash
+yarn add @emotion/react @emotion/styled
+yarn add @emotion/babel-plugin @babel/preset-react -D
+```
+
+### 2. babel 수정
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: 'tsconfig',
+        tsConfigPath: 'tsconfig.paths.json',
+      },
+    },
+  ],
+  babel: {
+    presets: [
+      [
+        '@babel/preset-react',
+        { runtime: 'automatic', importSource: '@emotion/react' },
+      ],
+    ],
+    plugins: ['@emotion/babel-plugin'],
+  },
+}
+```
+
+### 3. tsconfig.json 에서 emotion 연결
+
+```json
+// compilerOptions 부분에
+"jsxImportSource": "@emotion/react" 추가
 ```
