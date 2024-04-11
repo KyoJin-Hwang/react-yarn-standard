@@ -1,11 +1,53 @@
 {
-    "extends": [
-        "react-app",
-        "react-app/jest",
-        "plugin:prettier/recommended"
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "react-app/jest"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    // var 금지
+    "no-var": "warn",
+    "no-unused-vars": "warn",
+    // console.log 만 따로 찍는거 가능하게
+    "no-console": "off",
+    // jsx 문법은 js,jsx,ts,tsx 를 제외한 사용불가
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     ],
-    "plugins": ["prettier"],
-    "rules": {
-        "prettier/prettier" : "error"
+    // alert 문제 비적용
+    "no-alert": "off",
+    // 프래그먼트 (빈태그) 사용할 수 있게
+    "react/jsx-no-useless-fragment": "off",
+    // 확장자는 생략해서 import 하도록 설정
+    "react/no-unstable-nested-components": ["off"],
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
     }
+  }
 }

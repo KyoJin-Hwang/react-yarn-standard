@@ -10,6 +10,7 @@
 - 첫 빌드는 무사히 완료 이후 두번째부터 static 이라는 파일만 생긴다.
 
 (참고 사진)
+
 ![alt text](image-4.png)
 
 #### ✔ **Yarn berry** : 3.8.0
@@ -434,10 +435,67 @@ yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
 yarn add eslint-config-airbnb -D
 ```
 
-#### ✅ 2-1 만약 CRA를 통해 만드는게 아닐시 or CRA v2 기준 이하일때
+### 3. 의존성 패키기 확인 후 설치
 
 ```bash
 npm info "eslint-config-airbnb@latest" peerDependencies
 ```
 
 ![alt text](image-5.png)
+
+1. 필요한 패키지들을 확인한다.
+2. npx install-peerdeps eslint-config-airbnb -D 를 하여 devDependencies 다운는다.
+
+```bash
+npx install-peerdeps eslint-config-airbnb -D
+
+# It seems as if you are useing Yarn. Would you like to use Yarn for the
+# instatllation? (Y/N) 이 뜰경우 y를 누르고 enter를 누른다.
+# 만약 설치가 안될시
+
+yarn add eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-import -D
+```
+
+![alt text](image-7.png)
+
+### 4. eslintrc.json 수정
+
+```json
+{
+  // [parser] typescript를 parser로 사용하도록 함
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "react-app/jest"
+  ],
+  // [plugins] 사용할 eslint 플러그인 설정
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    }
+  }
+}
+```
+
+### 5. eslintrc 패키지설명
+
+- eslint-config-prettier : Prettier와 충돌이 생길 수 있는 ESLint의 규칙들을 비활성화
+- eslint-plugin-prettier : ESLint로 Prettier를 실행하는 플러그인
+- eslint : 자바스크립트 코드를 검증 및 확인하는 핵심 라이브러리
+- eslint-plugin-import : ES6+의 import/export 문법과 파일 경로 및 파일명이 제대로 입력되었는지를 체크해 주는 플러그인
+- eslint-plugin-jsx-a11y : JSX 엘리먼트의 접근성 관련 규칙을 체크해주는 플러그인
+- eslint-plugin-react : React를 위한 규칙을 추가해주는 플러그인
+- eslint-plugin-react-hooks : React Hooks를 위한 규칙을 추가해 주는 플러그인
+- eslint-config-airbnb : eslint airbnb규칙 적용 플러그인
