@@ -499,3 +499,44 @@ yarn add eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y es
 - eslint-plugin-react : React를 위한 규칙을 추가해주는 플러그인
 - eslint-plugin-react-hooks : React Hooks를 위한 규칙을 추가해 주는 플러그인
 - eslint-config-airbnb : eslint airbnb규칙 적용 플러그인
+
+## 4️⃣ Emotion setting
+
+### 1. Emotion 설치
+
+```bash
+yarn add @emotion/react @emotion/styled
+yarn add @emotion/babel-plugin @babel/preset-react -D
+```
+
+### 2. babel 수정
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: 'tsconfig',
+        tsConfigPath: 'tsconfig.paths.json',
+      },
+    },
+  ],
+  babel: {
+    presets: [
+      [
+        '@babel/preset-react',
+        { runtime: 'automatic', importSource: '@emotion/react' },
+      ],
+    ],
+    plugins: ['@emotion/babel-plugin'],
+  },
+}
+```
+
+### 3. tsconfig.json 에서 emotion 연결
+
+```json
+// compilerOptions 부분에
+"jsxImportSource": "@emotion/react" 추가
+```
