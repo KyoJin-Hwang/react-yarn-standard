@@ -71,7 +71,11 @@
         "tsx": "never"
       }
     ],
-    "@typescript-eslint/no-var-requires": 1
+    "@typescript-eslint/no-var-requires": 1,
+    // button이나 a 태그와 같이 상호작용하는 요소가 아님에도 onClick 이벤트 적용룰
+    "jsx-a11y/click-events-have-key-events": "off",
+    // div 한테 마우스 또는 키보드 입네트 리스너가 있을 때 발생하는 문제
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "settings": {
     "import/resolver": {
