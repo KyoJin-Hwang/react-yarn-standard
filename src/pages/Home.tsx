@@ -2,10 +2,13 @@ import { css } from '@emotion/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const homeStyle = css`
+  /* font-weight: bold; */
+`
 function Home() {
   const navigate = useNavigate()
   return (
-    <div>
+    <div css={homeStyle}>
       Home 이에요
       <div
         css={css`
