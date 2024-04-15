@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Footer from '@assets/test.jpg'
 
 const homeStyle = css`
   /* font-weight: bold; */
@@ -10,6 +11,7 @@ function Home() {
   return (
     <div css={homeStyle}>
       Home 이에요
+      <img src={Footer} alt="123" />
       <div
         css={css`
           display: flex;

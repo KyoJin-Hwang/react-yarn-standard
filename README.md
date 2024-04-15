@@ -187,6 +187,15 @@ yarn add -D @testing-library/jest-dom
 "types": ["jest", "@testing-library/jest-dom"]
 ```
 
+### 6. #타입 정의가 없는 패키지 설치위한 plugin 설치
+
+```bash
+# 타입 정의가 없는 패키지 설치 시 가능하면 @types/* 패키지를 함께 설치합니다.
+yarn plugin import typescript
+```
+
+![alt text](image-6.png)
+
 ## 2️⃣ ESLint / Prettier 적용
 
 ### vscode Extends 설치
