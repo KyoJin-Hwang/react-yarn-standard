@@ -191,6 +191,8 @@ yarn add -D @testing-library/jest-dom
 
 ```bash
 # 타입 정의가 없는 패키지 설치 시 가능하면 @types/* 패키지를 함께 설치합니다.
+# 버전 확인하고 사용하기 (확인 안할시 설치만되고 적용안됨)
+# 플러그인은 따로 버전정해서 설치못하는걸로 알고있음.!!
 yarn plugin import typescript
 ```
 
