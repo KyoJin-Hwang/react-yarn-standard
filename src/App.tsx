@@ -1,23 +1,23 @@
 import React from 'react'
-import logo from './logo.svg'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
+import Home from '@pages/Home'
+import TestMain from '@pages/TestMain'
+import TestSub from '@pages/TestSub'
+import logo from './logo.svg'
 
 function App() {
+  const location = useLocation()
   return (
     <div className="App">
       <header className="App-header" css={{ background: 'black' }}>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/KyoJin-Hwang/react-yarn-standard"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Kyojin
-        </a>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/main" element={<TestMain />} />
+          <Route path="/sub" element={<TestSub />} />
+        </Routes>
       </header>
     </div>
   )
