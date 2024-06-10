@@ -1,6 +1,9 @@
 # react-yarn-standard
 
 #### 🛒 폴더에 있는 이미지 파일 삭제
+#### ❌ yarn start Error 시 
+- 버전을 맞춘다.
+- yarn install을 한다
 
 ## ✔ 세팅 버전 ( Version )
 
