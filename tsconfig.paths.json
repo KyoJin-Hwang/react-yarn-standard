@@ -3,16 +3,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@store/*": ["src/store/*"],
       "@apis/*": ["src/apis/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
       "@layout/*": ["src/layout/*"],
       "@lib/*": ["src/lib/*"],
-      "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@pages/*": ["src/pages/*"]
     }
   }
 }
