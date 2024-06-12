@@ -1,6 +1,7 @@
 # react-yarn-standard
 
 #### 🛒 폴더에 있는 이미지 파일 삭제
+#### ✅ 첫 Clone 시에는 yarn or yarn install 실행
 #### ❌ yarn start Error 시 
 - 버전을 맞춘다.
 - yarn install을 한다
