@@ -84,7 +84,7 @@
 ### 0. Node Version 확인
 
 ```bash
-node -v  // 20.12.1
+node -v  // 20.11.0
 ```
 
 ### ❌ Node 버전 틀린 경우
